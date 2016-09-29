@@ -9,7 +9,6 @@ class TarjetaTest extends \PHPUnit_Framework_TestCase {
 			$this->tarjeta = new Baja();
 			$this->colectivo1 = new Colectivo("143 Rojo", "Rosario Bus");
 			$this->colectivo2 = new Colectivo("35/9 Rojo", "Rosario Bus");
-			$this->colectivo3 = new Colectivo("133 Verde", "Verde");
   }	
 
   public function testRecargar() {
@@ -26,9 +25,7 @@ class TarjetaTest extends \PHPUnit_Framework_TestCase {
   	$this->tarjeta->pagar($this->colectivo1, "2016/09/29 11:05");
 	$this->assertEquals($this->tarjeta->saldo(), 312, "Cuando recargo 272 y pago un colectivo deberia tener finalmente 312");	
 	$this->tarjeta->pagar($this->colectivo2, "2016/09/29 11:15");
-	$this->assertEquals($this->tarjeta->saldo(), 309.5, "Cuando pago un colectivo con transbordo deberia tener finalmente 309.5");
-	$this->tarjeta->pagar($this->colectivo3, "2016/09/29 20:00");
-	$this->assertEquals($this->tarjeta->saldo(), 301.5, "Cuando pago un colectivo sin transbordo deberia tener finalmente 301.5");  	
+	$this->assertEquals($this->tarjeta->saldo(), 309.5, "Cuando pago un colectivo con transbordo deberia tener finalmente 309.5");  	
   }
 }
 
