@@ -1,2 +1,2 @@
-# TarjetaColectivo
-Hola profe hice la tarea :)
+# Tarjeta
+[![Build Status](https://travis-ci.org/cristianquintaa/Tarjeta.png?branch=master)](https://travis-ci.org/cristianquintaa/Tarjeta)
