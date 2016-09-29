@@ -20,7 +20,7 @@ class Baja implements Tarjeta {
       }
       $monto = 0;
       if ($trasbordo){
-        $monto = 2.64*$this->descuento;
+        $monto = 2.5*$this->descuento;
       }
       else{
         $monto = 8*$this->descuento;
