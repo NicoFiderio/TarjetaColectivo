@@ -11,10 +11,12 @@ class Baja implements Tarjeta {
     $this->descuento = 1;
   }
   public function pagar(Transporte $transporte, $fecha_y_hora){
-    if ($transporte->tipo() == "colectivo"){
+      $aux1=strtotime($fecha_y_hora);
+      $aux2=strtotime($this->ultimafecha);
+      if ($transporte->tipo() == "colectivo"){
       $trasbordo = false;
       if (count($this->viajes) > 0){
-        if (end($this->viajes)->tiempo() - strtotime($fecha_y_hora) < 3600) {
+        if (($aux1-$aux2) < 3600) {
           $trasbordo = true;
         }
       }
@@ -66,13 +68,8 @@ class Baja implements Tarjeta {
       $this->saldo = $this->saldo-($this->viajePlus*8);
       $this->viajePlus=0;
     }
-    echo "El saldo actual es de: ". $this->saldo, "<br>";
   }
   public function saldo(){
     return $this->saldo;
-  }
-  public function viajesRealizados(){ 
-    echo "Estos fueron los viajes realizados: <br>";
-    return $this->viajes; 
   }
 }
