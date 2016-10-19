@@ -3,12 +3,13 @@ namespace Poli\Tarjeta;
 
 class TarjetaTest extends \PHPUnit_Framework_TestCase {
 
-  protected $tarjeta,$colectivo1,$colectivo2;	
+  protected $tarjeta,$bici,$colectivo1,$colectivo2;	
 
   public function setup(){
 			$this->tarjeta = new Baja();
 			$this->colectivo1 = new Colectivo("143 Rojo", "Rosario Bus");
 			$this->colectivo2 = new Colectivo("35/9 Rojo", "Rosario Bus");
+	  		$this->bici=new Bicicleta(123);
   }	
 
   public function testRecargar() {
@@ -28,6 +29,8 @@ class TarjetaTest extends \PHPUnit_Framework_TestCase {
 	$this->assertEquals($this->tarjeta->saldo(), 89.5, "Cuando pago un colectivo con transbordo deberia tener finalmente 89.5");  	
   }
  public function testPagarSinSaldoEnLaTarjeta(){
+	$this->tarjeta->pagar($this->bici,"2016/09/29 12:00");
+	$this->assertEquals($this->tarjeta->saldo(), 0, "Si pago una bicicleta sin saldo me tiene que rechazar el pago");
 	$this->tarjeta->pagar($this->colectivo1,"2016/09/29 06:00");
 	$this->tarjeta->pagar($this->colectivo2,"2016/09/29 08:00");
 	$this->tarjeta->pagar($this->colectivo1,"2016/09/29 10:00");
