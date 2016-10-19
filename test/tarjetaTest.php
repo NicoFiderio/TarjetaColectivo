@@ -25,7 +25,7 @@ class TarjetaTest extends \PHPUnit_Framework_TestCase {
   	$this->tarjeta->pagar($this->colectivo1, "2016/09/29 11:05");
 	$this->assertEquals($this->tarjeta->saldo(), 92, "Cuando recargo 100 y pago un colectivo deberia tener finalmente 92");	
 	$this->tarjeta->pagar($this->colectivo2, "2016/09/29 11:50");
-	$this->assertEquals($this->tarjeta->saldo(), 89.5, "Cuando pago un colectivo con transbordo deberia tener finalmente 90");  	
+	$this->assertEquals($this->tarjeta->saldo(), 89.5, "Cuando pago un colectivo con transbordo deberia tener finalmente 89.5");  	
   }
  public function testPagarSinSaldoEnLaTarjeta(){
 	$this->tarjeta->pagar($this->colectivo1,"2016/09/29 06:00");
