@@ -21,11 +21,11 @@ class TarjetaTest extends \PHPUnit_Framework_TestCase {
 
  public function testPagarConTransbordo() {
   	$this->tarjeta= new Baja();
-	$this->tarjeta->recargar(272);
+	$this->tarjeta->recargar(100);
   	$this->tarjeta->pagar($this->colectivo1, "2016/09/29 11:05");
-	$this->assertEquals($this->tarjeta->saldo(), 312, "Cuando recargo 272 y pago un colectivo deberia tener finalmente 312");	
+	$this->assertEquals($this->tarjeta->saldo(), 92, "Cuando recargo 100 y pago un colectivo deberia tener finalmente 92");	
 	$this->tarjeta->pagar($this->colectivo2, "2016/09/29 11:15");
-	$this->assertEquals($this->tarjeta->saldo(), 309.5, "Cuando pago un colectivo con transbordo deberia tener finalmente 309.5");  	
+	$this->assertEquals($this->tarjeta->saldo(), 89.5, "Cuando pago un colectivo con transbordo deberia tener finalmente 89.5");  	
   }
  public function testPagarSinSaldoEnLaTarjeta(){
 	$this->tarjeta->pagar($this->colectivo1,"2016/09/29 06:00");
