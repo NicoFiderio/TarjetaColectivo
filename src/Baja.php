@@ -73,4 +73,7 @@ class Baja implements Tarjeta {
   public function saldo(){
     return $this->saldo;
   }
+  public function viajePlus(){
+  	return $this->viajePlus;
+  }
 }
