@@ -49,7 +49,7 @@ public function testPagarSinTransbordoMismoColectivo() {
   	$this->tarjeta->recargar(100);
   	$this->tarjeta->pagar($this->colectivo1, "2016/09/29 16:20");
   	$this->tarjeta->pagar($this->colectivo1, "2016/09/29 17:00");
-  	$this->assertEquals($this->tarjeta->saldo(), 304, "Si tengo 312 y pago un colectivo sin transbordo ya que es el mismo deberia tener finalmente 304");
+  	$this->assertEquals($this->tarjeta->saldo(), 84, "Si tengo 100 y pago dos colectivos iguales no deberia cobrarme transbordo y deberia tener finalmente 84");
 }
 
 }
