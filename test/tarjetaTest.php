@@ -38,6 +38,18 @@ class TarjetaTest extends \PHPUnit_Framework_TestCase {
 	$this->tarjeta->recargar(20);
 	$this->assertEquals($this->tarjeta->saldo(), 4, "Si cargo 20 y habia usado dos viajes plus deberia tener cobrarme los dos plus y tener finalmente 4");
  }
+public function testPagarSinTransbordo() {
+  	$this->tarjeta->recargar(100);
+  	$this->tarjeta->pagar($this->colectivo1, "2016/09/29 15:50");
+   	$this->tarjeta->pagar($this->colectivo2, "2016/09/29 17:30");
+  	$this->assertEquals($this->tarjeta->saldo(), 84, "Si tengo 100 y pago dos colectivos sin transbordo deberia tener finalmente 84");
+ 
+  }
+public function testPagarSinTransbordoMismoColectivo() {
+  	$this->tarjeta->recargar(100);
+  	$this->tarjeta->pagar($this->colectivo1, "2016/09/29 16:20");
+  	$this->tarjeta->pagar($this->colectivo1, "2016/09/29 17:00");
+  	$this->assertEquals($this->tarjeta->saldo(), 304, "Si tengo 312 y pago un colectivo sin transbordo ya que es el mismo deberia tener finalmente 304");
 }
 
 ?>
