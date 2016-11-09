@@ -52,4 +52,5 @@ public function testPagarSinTransbordoMismoColectivo() {
   	$this->assertEquals($this->tarjeta->saldo(), 304, "Si tengo 312 y pago un colectivo sin transbordo ya que es el mismo deberia tener finalmente 304");
 }
 
+}
 ?>
