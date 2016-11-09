@@ -7,9 +7,11 @@ class Baja implements Tarjeta {
   private $saldo = 0;
   protected $descuento;
   public $viajePlus=0;
-  public $ultimafecha;
+  protected $ultimafecha = 0,$ultimabicipaga=0,$tiempomaxtransbordo=3600;
+  protected $lunes, $dias = array(0 => "Lunes" , 1 => "Martes" , 2 => "Miercoles", 3 => "Jueves", 4 => "Viernes", 5 => "Sabado", 6 => "Domingo");
   public function __construct() {
     $this->descuento = 1;
+    $this->lunes = strtotime("2016/01/04 00:00");
   }
   public function pagar(Transporte $transporte, $fecha_y_hora){
 	if ($transporte->tipo() == "colectivo"){
